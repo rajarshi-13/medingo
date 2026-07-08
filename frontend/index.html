@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medingo AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ====================================================== -->
+    <!-- HEADER -->
+    <!-- ====================================================== -->
+
+    <header>
+
+        <div class="logo">
+
+            🏥 <span>Medingo AI</span>
+
+        </div>
+
+        <div class="status">
+
+            <span class="dot"></span>
+
+            Backend Connected
+
+        </div>
+
+    </header>
+
+
+    <!-- ====================================================== -->
+    <!-- HERO -->
+    <!-- ====================================================== -->
+
+    <section class="hero">
+
+        <h1>
+
+            Intelligent PHC Decision Support System
+
+        </h1>
+
+        <p>
+
+            AI Powered Patient Forecasting & Operational Risk Assessment
+
+        </p>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- CONTROLS -->
+    <!-- ====================================================== -->
+
+    <section class="controls">
+
+        <select id="phcSelect">
+
+            <option>Loading PHCs...</option>
+
+        </select>
+
+        <button id="predictBtn">
+
+            Generate Forecast
+
+        </button>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- TOP METRICS -->
+    <!-- ====================================================== -->
+
+    <section class="cards">
+
+        <div class="card">
+
+            <h3>
+
+                👥 Tomorrow Patients
+
+            </h3>
+
+            <h1 id="patients">
+
+                --
+
+            </h1>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+
+                💊 Remaining Stock
+
+            </h3>
+
+            <h1 id="stock">
+
+                --
+
+            </h1>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+
+                👨‍⚕️ Doctor Utilization
+
+            </h3>
+
+            <h1 id="doctor">
+
+                --
+
+            </h1>
+
+        </div>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- MEDICINES -->
+    <!-- ====================================================== -->
+
+    <section class="cards two">
+
+        <div class="card">
+
+            <h3>
+
+                💊 Paracetamol Required
+
+            </h3>
+
+            <h1 id="paracetamol">
+
+                --
+
+            </h1>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+
+                💉 Amoxicillin Required
+
+            </h3>
+
+            <h1 id="amoxicillin">
+
+                --
+
+            </h1>
+
+        </div>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- RISK SCORE -->
+    <!-- ====================================================== -->
+
+    <section class="risk-card">
+
+        <h2>
+
+            ⚠ Overall Operational Risk
+
+        </h2>
+
+        <div class="progress">
+
+            <div class="progress-fill" id="riskFill">
+
+            </div>
+
+        </div>
+
+        <h3 id="riskText">
+
+            0 / 100
+
+        </h3>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- ALERTS -->
+    <!-- ====================================================== -->
+
+    <section class="alert-card">
+
+        <h2>
+
+            🚨 Operational Alerts
+
+        </h2>
+
+        <ul id="alerts">
+
+            <li>
+
+                No Alerts
+
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- AI EXPLANATION -->
+    <!-- ====================================================== -->
+
+    <section class="ai-card">
+
+        <h2>
+
+            🤖 AI Healthcare Advisor
+
+        </h2>
+
+        <pre id="aiExplanation">
+
+Click "Generate Forecast" to get AI insights.
+
+        </pre>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- FOOTER -->
+    <!-- ====================================================== -->
+
+    <footer>
+
+        Medingo AI • Google Agentic AI Day Prototype • 2026
+
+    </footer>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+/* ==========================================================
+   Medingo AI Dashboard
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:#f4f7fb;
+
+    color:#222;
+
+    min-height:100vh;
+
+    padding:30px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#4285F4;
+
+}
+
+.logo span{
+
+    margin-left:8px;
+
+}
+
+.status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:white;
+
+    padding:10px 18px;
+
+    border-radius:40px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    font-weight:500;
+
+}
+
+.dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#34A853;
+
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.hero h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#222;
+
+}
+
+.hero p{
+
+    margin-top:10px;
+
+    color:#777;
+
+    font-size:17px;
+
+}
+
+/* ==========================================================
+   CONTROLS
+========================================================== */
+
+.controls{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:35px;
+
+    flex-wrap:wrap;
+
+}
+
+select{
+
+    padding:14px 18px;
+
+    width:230px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    background:white;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+button{
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#4285F4;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#2f73e0;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:22px;
+
+    margin-bottom:28px;
+
+}
+
+.cards.two{
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card h3{
+
+    color:#777;
+
+    margin-bottom:15px;
+
+    font-weight:500;
+
+}
+
+.card h1{
+
+    font-size:42px;
+
+    color:#4285F4;
+
+}
+
+/* ==========================================================
+   RISK
+========================================================== */
+
+.risk-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    margin-bottom:28px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.risk-card h2{
+
+    margin-bottom:20px;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:22px;
+
+    border-radius:30px;
+
+    background:#e5e7eb;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#34A853,#FBBC05,#EA4335);
+
+    transition:width 1s ease;
+
+}
+
+#riskText{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    color:#EA4335;
+
+    font-size:28px;
+
+}
+
+/* ==========================================================
+   ALERTS
+========================================================== */
+
+.alert-card{
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    margin-bottom:28px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.alert-card h2{
+
+    margin-bottom:18px;
+
+}
+
+.alert-card ul{
+
+    list-style:none;
+
+}
+
+.alert-card li{
+
+    padding:14px;
+
+    margin-bottom:12px;
+
+    border-left:6px solid #34A853;
+
+    background:#eefaf0;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+/* ==========================================================
+   AI CARD
+========================================================== */
+
+.ai-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.ai-card h2{
+
+    margin-bottom:22px;
+
+}
+
+.ai-card pre{
+
+    white-space:pre-wrap;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    color:#333;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    text-align:center;
+
+    margin-top:45px;
+
+    color:#888;
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+.hero h1{
+
+    font-size:28px;
+
+}
+
+.card h1{
+
+    font-size:34px;
+
+}
+
+.controls{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+select{
+
+    width:100%;
+
+}
+
+button{
+
+    width:100%;
+
+}
+
+}
