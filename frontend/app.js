@@ -2,7 +2,7 @@
 // Medingo AI Dashboard
 // ==========================================================
 
-const API = "http://127.0.0.1:8000";
+const API = "https://medingo.onrender.com/";
 
 const phcSelect = document.getElementById("phcSelect");
 const predictBtn = document.getElementById("predictBtn");
