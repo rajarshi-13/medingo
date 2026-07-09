@@ -109,39 +109,39 @@ const pipeline = [
 // Utility Functions
 // ==========================================================
 
-function sleep(ms){
+function sleep(ms) {
 
     return new Promise(resolve => setTimeout(resolve, ms));
 
 }
 
-function getStatus(node){
+function getStatus(node) {
 
     return node.querySelector(".status");
 
 }
 
-function resetPipeline(){
+function resetPipeline() {
 
     reportSection.classList.remove("show");
 
-    pipeline.forEach(step=>{
+    pipeline.forEach(step => {
 
         const node = document.getElementById(step.id);
 
         console.log("Checking:", step.id, node);
 
-        if(!node){
+        if (!node) {
             console.error("Missing node:", step.id);
             return;
         }
 
         const status = node.querySelector(".status");
 
-        node.classList.remove("active","done");
+        node.classList.remove("active", "done");
 
-        if(status){
-            status.classList.remove("active","done");
+        if (status) {
+            status.classList.remove("active", "done");
             status.innerText = step.waiting;
         }
 
@@ -153,17 +153,17 @@ function resetPipeline(){
 // Count Animation
 // ==========================================================
 
-async function animateCounter(element, endValue, duration = 800){
+async function animateCounter(element, endValue, duration = 800) {
 
     let start = 0;
 
     const increment = Math.ceil(endValue / 50);
 
-    while(start < endValue){
+    while (start < endValue) {
 
         start += increment;
 
-        if(start > endValue){
+        if (start > endValue) {
 
             start = endValue;
 
@@ -183,11 +183,11 @@ async function animateCounter(element, endValue, duration = 800){
 // AI Pipeline Animation
 // ==========================================================
 
-async function animatePipeline(){
+async function animatePipeline() {
 
     resetPipeline();
 
-    for(const step of pipeline){
+    for (const step of pipeline) {
 
         const node = document.getElementById(step.id);
 
@@ -195,9 +195,9 @@ async function animatePipeline(){
 
         node.scrollIntoView({
 
-            behavior:"smooth",
+            behavior: "smooth",
 
-            block:"center"
+            block: "center"
 
         });
 
@@ -211,15 +211,15 @@ async function animatePipeline(){
         // Simulation Engine Animation
         // ==========================================
 
-        if(step.id === "simulation"){
+        if (step.id === "simulation") {
 
             const stats = node.querySelectorAll("strong");
 
-            await animateCounter(stats[0],27375);
+            await animateCounter(stats[0], 27375);
 
-            await animateCounter(stats[1],41,400);
+            await animateCounter(stats[1], 41, 400);
 
-            await animateCounter(stats[2],25,400);
+            await animateCounter(stats[2], 25, 400);
 
         }
 
@@ -227,17 +227,17 @@ async function animatePipeline(){
         // XGBoost Animation
         // ==========================================
 
-        if(step.id === "xgboost"){
+        if (step.id === "xgboost") {
 
-            for(let i=0;i<=10;i++){
+            for (let i = 0; i <= 10; i++) {
 
                 status.innerHTML =
 
-                "Running Model " +
+                    "Running Model " +
 
-                "█".repeat(i) +
+                    "█".repeat(i) +
 
-                "░".repeat(10-i);
+                    "░".repeat(10 - i);
 
                 await sleep(120);
 
@@ -249,15 +249,15 @@ async function animatePipeline(){
         // Gemini Animation
         // ==========================================
 
-        if(step.id === "gemini"){
+        if (step.id === "gemini") {
 
-            for(let i=0;i<6;i++){
+            for (let i = 0; i < 6; i++) {
 
                 status.innerHTML =
 
-                "Generating Executive Summary" +
+                    "Generating Executive Summary" +
 
-                ".".repeat((i%3)+1);
+                    ".".repeat((i % 3) + 1);
 
                 await sleep(250);
 
@@ -271,7 +271,7 @@ async function animatePipeline(){
 
         status.innerHTML =
 
-        "✔ " + step.completed;
+            "✔ " + step.completed;
 
         node.classList.remove("active");
 
@@ -287,13 +287,13 @@ async function animatePipeline(){
 // Load PHCs
 // ==========================================================
 
-async function loadPHCs(){
+async function loadPHCs() {
 
-    try{
+    try {
 
         const response = await fetch(`${API}/phcs`);
 
-        if(!response.ok){
+        if (!response.ok) {
 
             throw new Error("Unable to load PHCs");
 
@@ -303,7 +303,7 @@ async function loadPHCs(){
 
         phcSelect.innerHTML = "";
 
-        data.phcs.forEach(phc=>{
+        data.phcs.forEach(phc => {
 
             const option = document.createElement("option");
 
@@ -317,7 +317,7 @@ async function loadPHCs(){
 
     }
 
-    catch(error){
+    catch (error) {
 
         console.error(error);
 
@@ -331,27 +331,27 @@ async function loadPHCs(){
 // Calculate Risk
 // ==========================================================
 
-function calculateRisk(data){
+function calculateRisk(data) {
 
     let risk = 0;
 
-    risk += Math.min(50,data.doctor_utilization*0.5);
+    risk += Math.min(50, data.doctor_utilization * 0.5);
 
-    if(data.remaining_stock<1000){
-
-        risk += 15;
-
-    }
-
-    if(data.remaining_stock<600){
+    if (data.remaining_stock < 1000) {
 
         risk += 15;
 
     }
 
-    risk += Math.min(20,data.alerts.length*5);
+    if (data.remaining_stock < 600) {
 
-    return Math.min(100,Math.round(risk));
+        risk += 15;
+
+    }
+
+    risk += Math.min(20, data.alerts.length * 5);
+
+    return Math.min(100, Math.round(risk));
 
 }
 
@@ -359,11 +359,11 @@ function calculateRisk(data){
 // Type Writer
 // ==========================================================
 
-async function typeWriter(element,text,speed=12){
+async function typeWriter(element, text, speed = 12) {
 
-    element.innerHTML="";
+    element.innerHTML = "";
 
-    for(const letter of text){
+    for (const letter of text) {
 
         element.innerHTML += letter;
 
@@ -377,7 +377,7 @@ async function typeWriter(element,text,speed=12){
 // Populate Report
 // ==========================================================
 
-async function populateReport(data){
+async function populateReport(data) {
 
     const p = data.prediction;
 
@@ -405,21 +405,21 @@ async function populateReport(data){
 
     doctor.innerText =
 
-    p.doctor_utilization + "%";
+        p.doctor_utilization + "%";
 
     para.innerText =
 
-    p.paracetamol_needed;
+        p.paracetamol_needed;
 
     amox.innerText =
 
-    p.amoxicillin_needed;
+        p.amoxicillin_needed;
 
     riskScore.innerText = risk;
 
     alerts.innerHTML = "";
 
-    p.alerts.forEach(item=>{
+    p.alerts.forEach(item => {
 
         const li = document.createElement("li");
 
@@ -431,7 +431,7 @@ async function populateReport(data){
 
     summaryText.innerText =
 
-    `PHC ${p.phc_id} is expected to handle ${p.predicted_patients} patients tomorrow with an operational risk score of ${risk}/100.`;
+        `PHC ${p.phc_id} is expected to handle ${p.predicted_patients} patients tomorrow with an operational risk score of ${risk}/100.`;
 
     await typeWriter(
 
@@ -449,9 +449,9 @@ async function populateReport(data){
 // Generate Forecast
 // ==========================================================
 
-async function generateForecast(){
+async function generateForecast() {
 
-    try{
+    try {
 
         generateBtn.disabled = true;
 
@@ -475,7 +475,7 @@ async function generateForecast(){
 
         ]);
 
-        if(!response.ok){
+        if (!response.ok) {
 
             throw new Error("Forecast Failed");
 
@@ -483,21 +483,30 @@ async function generateForecast(){
 
         const data = await response.json();
 
+        // Show report section first
         reportSection.classList.add("show");
 
-        await populateReport(data);
+        // Allow browser to render it
+        await sleep(150);
 
-        reportSection.scrollIntoView({
+        // Scroll completely to report
+        window.scrollTo({
 
-            behavior:"smooth",
+            top: reportSection.offsetTop - 20,
 
-            block:"start"
+            behavior: "smooth"
 
         });
 
+        // Give scroll animation time to finish
+        await sleep(700);
+
+        // Now animate report contents
+        await populateReport(data);
+
     }
 
-    catch(error){
+    catch (error) {
 
         console.error(error);
 
@@ -505,13 +514,13 @@ async function generateForecast(){
 
     }
 
-    finally{
+    finally {
 
         generateBtn.disabled = false;
 
         generateBtn.innerText =
 
-        "Generate Tomorrow's Report";
+            "Generate Tomorrow's Report";
 
     }
 
