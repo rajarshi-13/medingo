@@ -140,26 +140,23 @@ def predict_tomorrow(phc_id):
     if len(alerts) == 0:
         alerts.append("Operations Normal")
 
-    # ==========================================================
-# Overall Risk Score
-# ==========================================================
 
-        risk_score = 0
+    risk_score = 0
 
-        # Doctor utilization contributes up to 50 points
-        risk_score += min(50, doctor_utilization * 0.5)
+    # Doctor utilization contributes up to 50 points
+    risk_score += min(50, doctor_utilization * 0.5)
 
-        # Medicine stock contributes up to 30 points
-        if remaining_stock < 1000:
-            risk_score += 15
+    # Medicine stock contributes up to 30 points
+    if remaining_stock < 1000:
+         risk_score += 15
 
-        if remaining_stock < 600:
-            risk_score += 15
+    if remaining_stock < 600:
+        risk_score += 15
 
-        # Alerts contribute up to 20 points
-        risk_score += min(20, len(alerts) * 5)
+    # Alerts contribute up to 20 points
+    risk_score += min(20, len(alerts) * 5)
 
-        risk_score = min(100, int(risk_score))
+    risk_score = min(100, int(risk_score))
     
     return {
 
