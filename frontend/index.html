@@ -9,7 +9,7 @@
 
     <title>Medingo AI</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="landing.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -17,6 +17,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -24,29 +26,30 @@
 
 <body>
 
-    <!-- ===================================== -->
+    <!-- ========================================= -->
     <!-- HERO -->
-    <!-- ===================================== -->
+    <!-- ========================================= -->
 
-    <header class="hero">
+    <header id="hero">
 
-        <div class="hero-left">
+        <div class="hero-container">
 
-            <img src="assets/Medingo Logo.png" class="logo">
+            <img src="assets/Medingo Logo.png" class="hero-logo" alt="Medingo Logo">
 
-            <span class="tag">
+            <span class="hero-tag">
 
-                Google Agentic AI Day 2026
-
+                Buld with AI | Code for communities
             </span>
 
             <h1>
 
-                Tomorrow's Healthcare
+                AI Decision Layer
+
+                <br>
 
                 <span>
 
-                    Intelligence
+                    for Hospital Management Systems
 
                 </span>
 
@@ -54,78 +57,118 @@
 
             <p>
 
-                Medingo transforms operational hospital data into
-                actionable healthcare decisions using Machine Learning,
-                AI Risk Analysis and Gemini powered clinical intelligence.
+                Medingo transforms routine hospital data into
+                predictive intelligence, operational risk insights,
+                and AI-powered healthcare recommendations.
 
             </p>
+
+            <a href="#problem" class="hero-btn">
+
+                Explore Medingo
+
+            </a>
+
+            <a href="dashboard.html" class="launch-btn-1">
+
+                Launch Live Prototype →
+
+            </a>
 
         </div>
 
     </header>
 
 
-    <!-- ===================================== -->
-    <!-- CONTROL CENTER -->
-    <!-- ===================================== -->
 
-    <section class="control-center">
+    <!-- ========================================= -->
+    <!-- THE PROBLEM -->
+    <!-- ========================================= -->
 
-        <div class="control-card">
 
-            <div>
+    <section id="problem">
 
-                <h2>
+        <div class="section-heading">
 
-                    AI Control Center
+            <span>
 
-                </h2>
+                THE PROBLEM
 
-                <p>
+            </span>
 
-                    Select a Primary Health Centre and let Medingo generate tomorrow's operational brief.
+            <h2>
 
-                </p>
+                Hospital Management Systems Store Data.
+
+                <br>
+
+                They Don't Think.
+
+            </h2>
+
+            <p>
+
+                Modern hospitals generate thousands of operational records every day.
+                Existing Hospital Management Systems efficiently store and manage this data,
+                but they cannot predict tomorrow or recommend operational decisions.
+
+            </p>
+
+        </div>
+
+
+        <div class="problem-grid">
+
+            <!-- Existing HMS -->
+
+            <div class="problem-card">
+
+                <div class="problem-title">
+
+                    ✅ Existing HMS Can
+
+                </div>
+
+                <ul>
+
+                    <li>Patient Registration</li>
+
+                    <li>Billing & Finance</li>
+
+                    <li>Appointments</li>
+
+                    <li>Medicine Inventory</li>
+
+                    <li>Electronic Health Records</li>
+
+                </ul>
 
             </div>
 
-            <div class="controls">
 
-                <select id="phcSelect">
+            <!-- Missing Intelligence -->
 
-                    <option value="PHC_01">PHC_01</option>
-                    <option value="PHC_02">PHC_02</option>
-                    <option value="PHC_03">PHC_03</option>
-                    <option value="PHC_04">PHC_04</option>
-                    <option value="PHC_05">PHC_05</option>
-                    <option value="PHC_06">PHC_06</option>
-                    <option value="PHC_07">PHC_07</option>
-                    <option value="PHC_08">PHC_08</option>
-                    <option value="PHC_09">PHC_09</option>
-                    <option value="PHC_10">PHC_10</option>
-                    <option value="PHC_11">PHC_11</option>
-                    <option value="PHC_12">PHC_12</option>
-                    <option value="PHC_13">PHC_13</option>
-                    <option value="PHC_14">PHC_14</option>
-                    <option value="PHC_15">PHC_15</option>
-                    <option value="PHC_16">PHC_16</option>
-                    <option value="PHC_17">PHC_17</option>
-                    <option value="PHC_18">PHC_18</option>
-                    <option value="PHC_19">PHC_19</option>
-                    <option value="PHC_20">PHC_20</option>
-                    <option value="PHC_21">PHC_21</option>
-                    <option value="PHC_22">PHC_22</option>
-                    <option value="PHC_23">PHC_23</option>
-                    <option value="PHC_24">PHC_24</option>
-                    <option value="PHC_25">PHC_25</option>
+            <div class="problem-card danger">
 
-                </select>
+                <div class="problem-title">
 
-                <button id="generateBtn">
+                    ❓ But Still Cannot Answer
 
-                    Generate Tomorrow's Report
+                </div>
 
-                </button>
+                <ul>
+
+                    <li>How many patients will visit tomorrow?</li>
+
+                    <li>Will medicines run out?</li>
+
+                    <li>Which doctors will be overloaded?</li>
+
+                    <li>Which hospital is operationally at risk?</li>
+
+                    <li>What actions should administrators take today?</li>
+
+                </ul>
 
             </div>
 
@@ -135,230 +178,689 @@
 
 
 
-    <!-- ===================================== -->
-    <!-- AI PIPELINE -->
-    <!-- ===================================== -->
 
-    <section class="pipeline-section">
+
+    <!-- ========================================= -->
+    <!-- THE SOLUTION -->
+    <!-- ========================================= -->
+
+
+    <section id="solution">
 
         <div class="section-heading">
 
             <span>
 
-                Explainable AI Pipeline
+                THE SOLUTION
 
             </span>
 
             <h2>
 
-                How Medingo Thinks
+                Medingo Adds Intelligence
+
+                <br>
+
+                To Existing Hospital Management Systems
 
             </h2>
 
             <p>
 
-                Before generating tomorrow's operational report,
-                Medingo processes multiple healthcare signals,
-                performs simulation, predicts patient demand,
-                evaluates operational risks and finally generates
-                AI recommendations.
+                Instead of replacing existing Hospital Management Systems,
+                Medingo works as an intelligent AI layer that continuously
+                analyzes operational hospital data, predicts future events,
+                detects risks, and recommends actions before problems occur.
 
             </p>
 
         </div>
 
 
-        <!-- INPUT LAYER -->
 
-        <div class="layer-title">
+        <div class="solution-flow">
 
-            DATA COLLECTION
+            <div class="flow-box">
+
+                🏥
+
+                <h3>
+
+                    Hospital
+
+                </h3>
+
+                <p>
+
+                    Daily healthcare operations generate thousands of records.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="flow-arrow">
+
+                ↓
+
+            </div>
+
+
+
+            <div class="flow-box">
+
+                💻
+
+                <h3>
+
+                    Hospital Management System
+
+                </h3>
+
+                <p>
+
+                    Stores patient records, appointments, medicines,
+                    billing and operational data.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="flow-arrow">
+
+                ↓
+
+            </div>
+
+
+
+            <div class="flow-box ai-layer">
+
+                🧠
+
+                <h3>
+
+                    Medingo AI Decision Layer
+
+                </h3>
+
+                <p>
+
+                    Continuously analyzes hospital operations to
+                    predict demand, detect risks and generate
+                    actionable healthcare recommendations.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="flow-arrow">
+
+                ↓
+
+            </div>
+
+
+
+            <div class="solution-results">
+
+                <div>
+
+                    📈
+
+                    <span>
+
+                        Patient Forecasting
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    ⚠
+
+                    <span>
+
+                        Risk Assessment
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    💊
+
+                    <span>
+
+                        Resource Planning
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    🤖
+
+                    <span>
+
+                        Executive AI Reports
+
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="input-layer">
+    </section>
 
-            <div class="node" id="hospital">
 
-                <i data-lucide="hospital"></i>
 
-                <h3>
 
-                    Hospital Data
+    <!-- ========================================= -->
+    <!-- MEDINGO CAPABILITIES -->
+    <!-- ========================================= -->
 
-                </h3>
+    <section id="capabilities">
 
-                <small>
+        <div class="section-heading">
 
-                    Patients
+            <span>
 
-                    Doctors
+                MEDINGO CAPABILITIES
 
-                    Beds
-
-                    Medicines
-
-                </small>
-                <div class="status">
-
-                    Waiting...
-
-                </div>
-
-            </div>
-
-            <div class="node" id="weather">
-
-                <i data-lucide="cloud-sun"></i>
-
-                <h3>
-
-                    Weather
-
-                </h3>
-
-                <small>
-
-                    Temperature
-
-                    AQI
-
-                </small>
-
-                <div class="status">
-
-                    Waiting...
-
-                </div>
-
-
-            </div>
-
-            <div class="node" id="disease">
-
-                <i data-lucide="activity"></i>
-
-                <h3>
-
-                    Disease Trends
-
-                </h3>
-
-                <small>
-
-                    Viral Pressure
-
-                    Seasonal Patterns
-
-                </small>
-
-                <div class="status">
-
-                    Waiting...
-
-                </div>
-
-            </div>
-
-            <div class="node" id="calendar">
-
-                <i data-lucide="calendar-days"></i>
-
-                <h3>
-
-                    Calendar
-
-                </h3>
-
-                <small>
-
-                    Holidays
-
-                    Festivals
-
-                    Weekends
-
-                </small>
-
-                <div class="status">
-
-                    Waiting...
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="connector">
-
-            ↓
-
-        </div>
-
-
-
-        <!-- SIMULATION -->
-
-        <div class="big-node" id="simulation">
-
-            <i data-lucide="database-zap"></i>
+            </span>
 
             <h2>
 
-                Healthcare Simulation Engine
+                One AI Platform.
+
+                <br>
+
+                Multiple Healthcare Intelligence Modules.
 
             </h2>
 
             <p>
 
-                Research-driven synthetic healthcare dataset generation.
+                Medingo is designed as a modular AI platform that integrates
+                with existing Hospital Management Systems to provide
+                predictive intelligence, operational recommendations,
+                and real-time decision support across the healthcare ecosystem.
 
             </p>
 
-            <div class="status">
+        </div>
 
-                Waiting...
+
+
+        <div class="capability-grid">
+
+            <div class="capability-card">
+
+                <div class="capability-icon">
+
+                    👥
+
+                </div>
+
+                <h3>
+
+                    Patient Forecasting
+
+                </h3>
+
+                <p>
+
+                    Predict tomorrow's patient footfall for every department,
+                    enabling hospitals to prepare resources before demand peaks.
+
+                </p>
 
             </div>
 
-            <div class="dataset-stats">
 
-                <div>
 
-                    <strong>
+            <div class="capability-card">
 
-                        27,375
+                <div class="capability-icon">
 
-                    </strong>
-
-                    Records
+                    💊
 
                 </div>
 
-                <div>
+                <h3>
 
-                    <strong>
+                    Medicine Intelligence
 
-                        41
+                </h3>
 
-                    </strong>
+                <p>
 
-                    Features
+                    Forecast medicine consumption, detect future shortages,
+                    and recommend optimal inventory planning.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="capability-card">
+
+                <div class="capability-icon">
+
+                    👨‍⚕️
 
                 </div>
 
-                <div>
+                <h3>
 
-                    <strong>
+                    Workforce Planning
 
-                        25
+                </h3>
 
-                    </strong>
+                <p>
 
-                    PHCs
+                    Analyze doctor workload, identify staffing gaps,
+                    and optimize workforce allocation.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="capability-card">
+
+                <div class="capability-icon">
+
+                    ⚠️
+
+                </div>
+
+                <h3>
+
+                    Operational Risk Engine
+
+                </h3>
+
+                <p>
+
+                    Continuously assess operational risks using
+                    hospital performance indicators and external factors.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="capability-card">
+
+                <div class="capability-icon">
+
+                    📊
+
+                </div>
+
+                <h3>
+
+                    Executive Decision Support
+
+                </h3>
+
+                <p>
+
+                    Generate AI-powered operational summaries,
+                    recommendations, and daily healthcare briefs
+                    for administrators.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="capability-card">
+
+                <div class="capability-icon">
+
+                    🌍
+
+                </div>
+
+                <h3>
+
+                    District & State Analytics
+
+                </h3>
+
+                <p>
+
+                    Monitor healthcare performance across multiple
+                    hospitals through centralized AI dashboards
+                    for health authorities.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="capability-card">
+
+                <div class="capability-icon">
+
+                    🚨
+
+                </div>
+
+                <h3>
+
+                    Smart Alerts
+
+                </h3>
+
+                <p>
+
+                    Notify administrators about medicine shortages,
+                    patient surges, operational risks,
+                    and emergency situations before they occur.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="capability-card">
+
+                <div class="capability-icon">
+
+                    🔌
+
+                </div>
+
+                <h3>
+
+                    HMS Integration
+
+                </h3>
+
+                <p>
+
+                    Connect seamlessly with existing Hospital
+                    Management Systems through secure APIs,
+                    requiring no replacement of current software.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- ========================================= -->
+    <!-- HOW MEDINGO WORKS -->
+    <!-- ========================================= -->
+
+    <section id="architecture">
+
+        <div class="section-heading">
+
+            <span>
+
+                HOW MEDINGO WORKS
+
+            </span>
+
+            <h2>
+
+                Intelligent Decision Layer
+
+                <br>
+
+                Built Above Existing Hospital Systems
+
+            </h2>
+
+            <p>
+
+                Medingo integrates with existing Hospital Management Systems,
+                continuously collects operational healthcare data,
+                processes it using AI models,
+                and delivers predictive insights,
+                operational recommendations,
+                and executive reports in real time.
+
+            </p>
+
+        </div>
+
+
+        <div class="architecture-flow">
+
+            <!-- Hospital -->
+
+            <div class="arch-box">
+
+                🏥
+
+                <h3>
+
+                    Hospitals
+
+                </h3>
+
+                <p>
+
+                    Daily healthcare operations
+
+                </p>
+
+            </div>
+
+
+            <div class="arch-arrow">
+
+                ↓
+
+            </div>
+
+
+
+            <!-- HMS -->
+
+            <div class="arch-box">
+
+                💻
+
+                <h3>
+
+                    Hospital Management System
+
+                </h3>
+
+                <p>
+
+                    Patient Records
+
+                    Inventory
+
+                    Billing
+
+                    OPD
+
+                </p>
+
+            </div>
+
+
+            <div class="arch-arrow">
+
+                ↓
+
+            </div>
+
+
+
+            <!-- API -->
+
+            <div class="arch-box">
+
+                🔌
+
+                <h3>
+
+                    Secure API Integration
+
+                </h3>
+
+                <p>
+
+                    Real-time operational data
+
+                </p>
+
+            </div>
+
+
+            <div class="arch-arrow">
+
+                ↓
+
+            </div>
+
+
+
+            <!-- Cloud -->
+
+            <div class="cloud-box">
+
+                <h2>
+
+                    ☁ Medingo AI Cloud
+
+                </h2>
+
+                <p>
+
+                    Intelligent Healthcare Decision Engine
+
+                </p>
+
+
+
+                <div class="cloud-grid">
+
+                    <div>
+
+                        📊
+
+                        Data Collection
+
+                    </div>
+
+                    <div>
+
+                        🧹
+
+                        Data Processing
+
+                    </div>
+
+                    <div>
+
+                        📈
+
+                        Forecast Engine
+
+                    </div>
+
+                    <div>
+
+                        ⚠
+
+                        Risk Engine
+
+                    </div>
+
+                    <div>
+
+                        🤖
+
+                        AI Recommendation Engine
+
+                    </div>
+
+                    <div>
+
+                        🚨
+
+                        Smart Alert Engine
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="arch-arrow">
+
+                ↓
+
+            </div>
+
+
+
+            <!-- Outputs -->
+
+            <div class="output-grid">
+
+                <div class="output-card">
+
+                    👨‍⚕️
+
+                    Hospital Administrator
+
+                </div>
+
+                <div class="output-card">
+
+                    🏥
+
+                    Medical Superintendent
+
+                </div>
+
+                <div class="output-card">
+
+                    📊
+
+                    District Dashboard
+
+                </div>
+
+                <div class="output-card">
+
+                    🇮🇳
+
+                    Government Analytics
 
                 </div>
 
@@ -366,8 +868,72 @@
 
         </div>
 
+    </section>
 
-        <div class="connector">
+
+
+    <!-- ========================================= -->
+    <!-- PROTOTYPE WALKTHROUGH -->
+    <!-- ========================================= -->
+
+    <section id="prototype">
+
+    <div class="section-heading">
+
+        <span>
+
+            INSIDE THE MEDINGO PROTOTYPE
+
+        </span>
+
+        <h2>
+
+            From Raw Healthcare Data
+
+            <br>
+
+            To an AI Generated Operational Brief
+
+        </h2>
+
+        <p>
+
+            The prototype demonstrates how Medingo transforms
+            multiple healthcare signals into actionable operational
+            intelligence. Every step below is executed after clicking
+            <strong>Generate Report</strong>.
+
+        </p>
+
+    </div>
+
+
+    <div class="prototype-flow">
+
+        <!-- STEP 1 -->
+
+        <div class="prototype-step">
+
+            <div class="step-number">01</div>
+
+            <h3>
+
+                Select a Primary Health Centre
+
+            </h3>
+
+            <p>
+
+                Choose the PHC for which tomorrow's operational
+                forecast needs to be generated.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="prototype-arrow">
 
             ↓
 
@@ -375,11 +941,74 @@
 
 
 
-        <!-- FEATURE ENGINEERING -->
+        <!-- STEP 2 -->
 
-        <div class="node wide-node" id="features">
+        <div class="prototype-step">
 
-            <i data-lucide="sliders-horizontal"></i>
+            <div class="step-number">02</div>
+
+            <h3>
+
+                Data Collection
+
+            </h3>
+
+            <p>
+
+                Medingo gathers operational hospital records,
+                weather conditions, disease trends,
+                seasonal patterns and calendar events.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="prototype-arrow">
+
+            ↓
+
+        </div>
+
+
+
+        <!-- STEP 3 -->
+
+        <div class="prototype-step">
+
+            <div class="step-number">03</div>
+
+            <h3>
+
+                Healthcare Simulation
+
+            </h3>
+
+            <p>
+
+                A research-inspired synthetic healthcare dataset
+                recreates realistic hospital operations for AI analysis.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="prototype-arrow">
+
+            ↓
+
+        </div>
+
+
+
+        <!-- STEP 4 -->
+
+        <div class="prototype-step">
+
+            <div class="step-number">04</div>
 
             <h3>
 
@@ -389,26 +1018,17 @@
 
             <p>
 
-                Data Cleaning
-
-                Encoding
-
-                Feature Selection
-
-                Forecast Variables
+                Raw healthcare records are cleaned,
+                transformed and converted into machine-learning
+                ready features.
 
             </p>
-            <div class="status">
-
-                Waiting...
-
-            </div>
 
         </div>
 
 
 
-        <div class="connector">
+        <div class="prototype-arrow">
 
             ↓
 
@@ -416,11 +1036,11 @@
 
 
 
-        <!-- XGBOOST -->
+        <!-- STEP 5 -->
 
-        <div class="node wide-node" id="xgboost">
+        <div class="prototype-step">
 
-            <i data-lucide="brain-circuit"></i>
+            <div class="step-number">05</div>
 
             <h3>
 
@@ -430,21 +1050,17 @@
 
             <p>
 
-                Predict Tomorrow's Patient Footfall
+                The trained forecasting model predicts tomorrow's
+                expected patient footfall using historical
+                healthcare patterns.
 
             </p>
-
-            <div class="status">
-
-                Waiting...
-
-            </div>
 
         </div>
 
 
 
-        <div class="connector">
+        <div class="prototype-arrow">
 
             ↓
 
@@ -452,39 +1068,31 @@
 
 
 
-        <!-- RISK ENGINE -->
+        <!-- STEP 6 -->
 
-        <div class="node wide-node" id="risk">
+        <div class="prototype-step">
 
-            <i data-lucide="shield-alert"></i>
+            <div class="step-number">06</div>
 
             <h3>
 
-                Operational Risk Engine
+                Operational Risk Analysis
 
             </h3>
 
             <p>
 
-                Doctor Capacity
-
-                Medicine Stock
-
-                Operational Alerts
+                Doctor workload, medicine availability
+                and operational risks are evaluated
+                to identify potential bottlenecks.
 
             </p>
-
-            <div class="status">
-
-                Waiting...
-
-            </div>
 
         </div>
 
 
 
-        <div class="connector">
+        <div class="prototype-arrow">
 
             ↓
 
@@ -492,301 +1100,78 @@
 
 
 
-        <!-- GEMINI -->
+        <!-- STEP 7 -->
 
-        <div class="node wide-node" id="gemini">
+        <div class="prototype-step">
 
-            <i data-lucide="sparkles"></i>
+            <div class="step-number">07</div>
 
             <h3>
 
-                Gemini AI Advisor
+                AI Recommendation Engine
 
             </h3>
 
             <p>
 
-                Converts predictions into actionable healthcare recommendations.
+                A Large Language Model converts numerical
+                predictions into human-readable
+                healthcare recommendations.
 
             </p>
-
-            <div class="status">
-
-                Waiting...
-
-            </div>
 
         </div>
 
 
 
-        <div class="connector final-arrow">
+        <div class="prototype-arrow">
 
             ↓
 
         </div>
 
-        <!-- ===================================== -->
-        <!-- TOMORROW'S OPERATIONAL BRIEF -->
-        <!-- Hidden Until AI Finishes -->
-        <!-- ===================================== -->
-
-<section id="reportSection" class="report-section">
-
-    <div class="report-header">
-
-        <span class="report-tag">
-            AI Generated Operational Brief
-        </span>
-
-        <h2>
-            Tomorrow's Operational Report
-        </h2>
-
-        <p>
-            Generated after analysing historical healthcare records,
-            external signals and operational risk indicators.
-        </p>
-
-    </div>
 
 
+        <!-- FINAL OUTPUT -->
 
-    <!-- Executive Summary -->
+        <div class="prototype-result">
 
-    <div class="summary-card">
+            <h2>
 
-        <div class="summary-title">
+                📋 Tomorrow's Operational Brief
 
-            🧠 Executive Summary
+            </h2>
 
-        </div>
+            <p>
 
-        <div id="summaryText">
+                The final report generated for hospital administrators includes:
 
-            Waiting for AI Summary...
+            </p>
 
-        </div>
+            <ul>
 
-    </div>
+                <li>✅ Expected Patient Footfall</li>
 
+                <li>✅ Medicine Requirement</li>
 
+                <li>✅ Remaining Medicine Stock</li>
 
-    <!-- KPI Cards -->
+                <li>✅ Doctor Capacity Utilization</li>
 
-    <div class="kpi-grid">
+                <li>✅ Operational Risk Score</li>
 
-        <div class="kpi-card">
+                <li>✅ Operational Alerts</li>
 
-            <div class="kpi-icon">
+                <li>✅ AI Generated Executive Summary</li>
 
-                👥
+            </ul>
+
+            <div class="prototype-note">
+
+                This is the operational report hospital administrators
+                receive to prepare resources before patients arrive.
 
             </div>
-
-            <div class="kpi-label">
-
-                Expected Patients Tomorrow
-
-            </div>
-
-            <div
-            class="kpi-value"
-            id="patients">
-
-                --
-
-            </div>
-
-            <div class="kpi-footer">
-
-                Forecasted OPD Footfall
-
-            </div>
-
-        </div>
-
-
-
-        <div class="kpi-card">
-
-            <div class="kpi-icon">
-
-                💊
-
-            </div>
-
-            <div class="kpi-label">
-
-                Remaining Medicine Stock
-
-            </div>
-
-            <div
-            class="kpi-value"
-            id="stock">
-
-                --
-
-            </div>
-
-            <div class="kpi-footer">
-
-                Estimated After Tomorrow
-
-            </div>
-
-        </div>
-
-
-
-        <div class="kpi-card">
-
-            <div class="kpi-icon">
-
-                👨‍⚕️
-
-            </div>
-
-            <div class="kpi-label">
-
-                Doctor Capacity Utilization
-
-            </div>
-
-            <div
-            class="kpi-value"
-            id="doctor">
-
-                --
-
-            </div>
-
-            <div class="kpi-footer">
-
-                Expected Workload
-
-            </div>
-
-        </div>
-
-
-
-        <div class="kpi-card risk-card">
-
-            <div class="kpi-icon">
-
-                ⚠
-
-            </div>
-
-            <div class="kpi-label">
-
-                Operational Risk
-
-            </div>
-
-            <div
-            class="kpi-value"
-            id="riskScore">
-
-                --
-
-            </div>
-
-            <div class="kpi-footer">
-
-                AI Risk Assessment
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- Medicine -->
-
-    <div class="medicine-card">
-
-        <h3>
-
-            💉 Medicine Requirement
-
-        </h3>
-
-        <div class="medicine-grid">
-
-            <div>
-
-                <span>
-
-                    Paracetamol
-
-                </span>
-
-                <strong id="para">
-
-                    --
-
-                </strong>
-
-            </div>
-
-            <div>
-
-                <span>
-
-                    Amoxicillin
-
-                </span>
-
-                <strong id="amox">
-
-                    --
-
-                </strong>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- Alerts -->
-
-    <div class="alerts-card">
-
-        <h3>
-
-            ⚠ Operational Alerts
-
-        </h3>
-
-        <ul id="alerts">
-
-        </ul>
-
-    </div>
-
-
-
-    <!-- Gemini -->
-
-    <div class="gemini-card">
-
-        <div class="gemini-header">
-
-            🤖 Gemini AI Clinical Advisor
-
-        </div>
-
-        <div id="aiExplanation">
-
-            Waiting for AI recommendation...
 
         </div>
 
@@ -794,41 +1179,133 @@
 
 </section>
 
+
+
+    <!-- ========================================= -->
+    <!-- LAUNCH DASHBOARD -->
+    <!-- ========================================= -->
+
+   <section id="launch">
+
+    <div class="section-heading">
+
+        <span>
+
+            EXPERIENCE THE PROTOTYPE
+
+        </span>
+
+        <h2>
+
+            Now It's Your Turn
+
+        </h2>
+
+        <p>
+
+            You've seen the problem, explored the solution,
+            understood the product architecture, and followed
+            the complete AI workflow.
+
+            <br><br>
+
+            Now experience Medingo yourself by generating
+            tomorrow's operational report for a Primary
+            Health Centre.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="launch-container">
+
+        <div class="launch-card">
+
+            <h3>
+
+                🚀 Launch Live Prototype
+
+            </h3>
+
+            <p>
+
+                Select a Primary Health Centre,
+                watch Medingo process healthcare signals,
+                and generate an AI-powered operational brief
+                in real time.
+
+            </p>
+
+            <ul>
+
+                <li>✔ AI Pipeline Visualization</li>
+
+                <li>✔ XGBoost Patient Forecasting</li>
+
+                <li>✔ Operational Risk Analysis</li>
+
+                <li>✔ Medicine Requirement Prediction</li>
+
+                <li>✔ AI Generated Executive Summary</li>
+
+            </ul>
+
+            <a href="dashboard.html" class="launch-btn">
+
+                Launch Live Prototype →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
+
+    <footer>
         <footer>
 
-            <div class="footer-content">
+    <div class="footer-container">
 
-    
+        <img
+            src="assets/Medingo Logo.png"
+            alt="Medingo Logo"
+            class="footer-logo"
+        >
 
-                <h2>
+        <h2>
 
-                    Medingo AI
+            Medingo AI
 
-                </h2>
+        </h2>
 
-                <p>
+        <p>
 
-                    Predict Earlier • Prepare Better • Save More Lives
+            An AI Decision Layer for Hospital Management Systems
 
-                </p>
+        </p>
 
-                <small>
+        <small>
 
-                    Google Agentic AI Day 2026
+            Buld with AI | Code for communities
 
-                </small>
+        </small>
 
-            </div>
+    </div>
 
-        </footer>
+</footer>
+    </footer>
 
-        <script src="app.js"></script>
 
-        <script>
-
-            lucide.createIcons();
-
-        </script>
+    <script src="app.js"></script>
 
 </body>
 

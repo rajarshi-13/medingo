@@ -1,549 +1,198 @@
-// ==========================================================
-// Medingo AI v0.2
-// Frontend Controller
-// ==========================================================
+/* =========================================================================
+   MEDINGO — APP.JS
+   Vanilla JS. No dependencies. Handles:
+   1. Scroll-reveal (fade-up, staggered) for every existing section block
+   2. Self-drawing architecture connector line
+   3. Capability card cursor-follow spotlight
+   4. AI report card — animated metrics + count-up (hero)
+   5. Prototype step sequential stagger
+   ========================================================================= */
 
-// ===============================
-// Backend URL
-// ===============================
+(function () {
+  "use strict";
 
-const API = "https://medingo.onrender.com";
+  var prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
+  /* -----------------------------------------------------------------------
+     1. SCROLL REVEAL
+     Attach data-reveal to existing content blocks (no HTML edits required)
+     and stagger children of grid/flow containers automatically.
+     ------------------------------------------------------------------- */
+  function markRevealTargets() {
+    var singles = [
+      "#problem .section-heading",
+      "#solution .section-heading",
+      "#capabilities .section-heading",
+      "#architecture .section-heading",
+      "#prototype .section-heading",
+      "#launch .section-heading",
+      ".launch-card",
+    ];
 
-// ===============================
-// DOM Elements
-// ===============================
-
-const phcSelect = document.getElementById("phcSelect");
-const generateBtn = document.getElementById("generateBtn");
-
-const reportSection = document.getElementById("reportSection");
-
-const patients = document.getElementById("patients");
-const stock = document.getElementById("stock");
-const doctor = document.getElementById("doctor");
-
-const para = document.getElementById("para");
-const amox = document.getElementById("amox");
-
-const riskScore = document.getElementById("riskScore");
-
-const summaryText = document.getElementById("summaryText");
-const aiExplanation = document.getElementById("aiExplanation");
-
-const alerts = document.getElementById("alerts");
-
-
-// ===============================
-// Pipeline
-// ===============================
-
-const pipeline = [
-
-    {
-        id: "hospital",
-        waiting: "Waiting...",
-        processing: "Collecting Hospital Records...",
-        completed: "Hospital Records Loaded"
-    },
-
-    {
-        id: "weather",
-        waiting: "Waiting...",
-        processing: "Loading Weather Intelligence...",
-        completed: "Weather Processed"
-    },
-
-    {
-        id: "disease",
-        waiting: "Waiting...",
-        processing: "Reading Disease Trends...",
-        completed: "Disease Trends Ready"
-    },
-
-    {
-        id: "calendar",
-        waiting: "Waiting...",
-        processing: "Analyzing Calendar...",
-        completed: "Calendar Processed"
-    },
-
-    {
-        id: "simulation",
-        waiting: "Waiting...",
-        processing: "Generating Synthetic Dataset...",
-        completed: "27,375 Records Generated"
-    },
-
-    {
-        id: "features",
-        waiting: "Waiting...",
-        processing: "Preparing ML Features...",
-        completed: "41 Features Ready"
-    },
-
-    {
-        id: "xgboost",
-        waiting: "Waiting...",
-        processing: "Running XGBoost...",
-        completed: "Forecast Generated"
-    },
-
-    {
-        id: "risk",
-        waiting: "Waiting...",
-        processing: "Calculating Operational Risk...",
-        completed: "Risk Score Generated"
-    },
-
-    {
-        id: "gemini",
-        waiting: "Waiting...",
-        processing: "Writing Executive Summary...",
-        completed: "Executive Summary Ready"
-    }
-
-];
-
-// ==========================================================
-// Utility Functions
-// ==========================================================
-
-function sleep(ms) {
-
-    return new Promise(resolve => setTimeout(resolve, ms));
-
-}
-
-function getStatus(node) {
-
-    return node.querySelector(".status");
-
-}
-
-function resetPipeline() {
-
-    reportSection.classList.remove("show");
-
-    pipeline.forEach(step => {
-
-        const node = document.getElementById(step.id);
-
-        console.log("Checking:", step.id, node);
-
-        if (!node) {
-            console.error("Missing node:", step.id);
-            return;
-        }
-
-        const status = node.querySelector(".status");
-
-        node.classList.remove("active", "done");
-
-        if (status) {
-            status.classList.remove("active", "done");
-            status.innerText = step.waiting;
-        }
-
+    singles.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el) {
+        el.setAttribute("data-reveal", "");
+      });
     });
 
-}
-
-// ==========================================================
-// Count Animation
-// ==========================================================
-
-async function animateCounter(element, endValue, duration = 800) {
-
-    let start = 0;
-
-    const increment = Math.ceil(endValue / 50);
-
-    while (start < endValue) {
-
-        start += increment;
-
-        if (start > endValue) {
-
-            start = endValue;
-
-        }
-
-        element.innerText = start.toLocaleString();
-
-        await sleep(duration / 50);
-
-    }
-
-}
-
-
-
-// ==========================================================
-// AI Pipeline Animation
-// ==========================================================
-
-async function animatePipeline() {
-
-    resetPipeline();
-
-    for (const step of pipeline) {
-
-        const node = document.getElementById(step.id);
-
-        const status = getStatus(node);
-
-        node.scrollIntoView({
-
-            behavior: "smooth",
-
-            block: "center"
-
-        });
-
-        node.classList.add("active");
-
-        status.classList.add("active");
-
-        status.innerText = step.processing;
-
-        // ==========================================
-        // Simulation Engine Animation
-        // ==========================================
-
-        if (step.id === "simulation") {
-
-            const stats = node.querySelectorAll("strong");
-
-            await animateCounter(stats[0], 27375);
-
-            await animateCounter(stats[1], 41, 400);
-
-            await animateCounter(stats[2], 25, 400);
-
-        }
-
-        // ==========================================
-        // XGBoost Animation
-        // ==========================================
-
-        if (step.id === "xgboost") {
-
-            for (let i = 0; i <= 10; i++) {
-
-                status.innerHTML =
-
-                    "Running Model " +
-
-                    "█".repeat(i) +
-
-                    "░".repeat(10 - i);
-
-                await sleep(120);
-
-            }
-
-        }
-
-        // ==========================================
-        // Gemini Animation
-        // ==========================================
-
-        if (step.id === "gemini") {
-
-            for (let i = 0; i < 6; i++) {
-
-                status.innerHTML =
-
-                    "Generating Executive Summary" +
-
-                    ".".repeat((i % 3) + 1);
-
-                await sleep(250);
-
-            }
-
-        }
-
-        status.classList.remove("active");
-
-        status.classList.add("done");
-
-        status.innerHTML =
-
-            "✔ " + step.completed;
-
-        node.classList.remove("active");
-
-        node.classList.add("done");
-
-        await sleep(250);
-
-    }
-
-}
-
-// ==========================================================
-// Load PHCs
-// ==========================================================
-
-async function loadPHCs() {
-
-    try {
-
-        const response = await fetch(`${API}/phcs`);
-
-        if (!response.ok) {
-
-            throw new Error("Unable to load PHCs");
-
-        }
-
-        const data = await response.json();
-
-        phcSelect.innerHTML = "";
-
-        data.phcs.forEach(phc => {
-
-            const option = document.createElement("option");
-
-            option.value = phc;
-
-            option.textContent = phc;
-
-            phcSelect.appendChild(option);
-
-        });
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        alert("Cannot connect to backend.");
-
-    }
-
-}
-
-// ==========================================================
-// Calculate Risk
-// ==========================================================
-
-function calculateRisk(data) {
-
-    let risk = 0;
-
-    risk += Math.min(50, data.doctor_utilization * 0.5);
-
-    if (data.remaining_stock < 1000) {
-
-        risk += 15;
-
-    }
-
-    if (data.remaining_stock < 600) {
-
-        risk += 15;
-
-    }
-
-    risk += Math.min(20, data.alerts.length * 5);
-
-    return Math.min(100, Math.round(risk));
-
-}
-
-// ==========================================================
-// Type Writer
-// ==========================================================
-
-async function typeWriter(element, text, speed = 12) {
-
-    element.innerHTML = "";
-
-    for (const letter of text) {
-
-        element.innerHTML += letter;
-
-        await sleep(speed);
-
-    }
-
-}
-
-// ==========================================================
-// Populate Report
-// ==========================================================
-
-async function populateReport(data) {
-
-    const p = data.prediction;
-
-    const risk = p.risk_score ?? calculateRisk(p);
-
-    await animateCounter(
-
-        patients,
-
-        p.predicted_patients,
-
-        700
-
-    );
-
-    await animateCounter(
-
-        stock,
-
-        p.remaining_stock,
-
-        700
-
-    );
-
-    doctor.innerText =
-
-        p.doctor_utilization + "%";
-
-    para.innerText =
-
-        p.paracetamol_needed;
-
-    amox.innerText =
-
-        p.amoxicillin_needed;
-
-    riskScore.innerText = risk;
-
-    alerts.innerHTML = "";
-
-    p.alerts.forEach(item => {
-
-        const li = document.createElement("li");
-
-        li.innerHTML = "⚠ " + item;
-
-        alerts.appendChild(li);
-
+    var staggerGroups = [
+      ".problem-grid > .problem-card",
+      ".solution-flow > .flow-box",
+      ".solution-results > div",
+      ".capability-grid > .capability-card",
+      ".architecture-flow > .arch-box, .architecture-flow > .cloud-box, .architecture-flow .output-card",
+      ".prototype-flow > .prototype-step, .prototype-flow > .prototype-result",
+    ];
+
+    staggerGroups.forEach(function (sel) {
+      var items = document.querySelectorAll(sel);
+      items.forEach(function (el, i) {
+        el.setAttribute("data-reveal", "");
+        el.style.setProperty("--reveal-delay", Math.min(i * 90, 420) + "ms");
+      });
     });
+  }
 
-    summaryText.innerText =
+  function initRevealObserver() {
+    if (prefersReducedMotion) {
+      document.querySelectorAll("[data-reveal]").forEach(function (el) {
+        el.classList.add("in-view");
+      });
+      return;
+    }
 
-        `PHC ${p.phc_id} is expected to handle ${p.predicted_patients} patients tomorrow with an operational risk score of ${risk}/100.`;
-
-    await typeWriter(
-
-        aiExplanation,
-
-        data.ai_explanation,
-
-        8
-
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
     );
 
-}
+    document.querySelectorAll("[data-reveal]").forEach(function (el) {
+      observer.observe(el);
+    });
+  }
 
-// ==========================================================
-// Generate Forecast
-// ==========================================================
+  /* -----------------------------------------------------------------------
+     2. ARCHITECTURE SELF-DRAWING CONNECTOR
+     Updates --arch-progress on .architecture-flow as the section scrolls
+     through the viewport, so the vertical spine "builds itself".
+     ------------------------------------------------------------------- */
+  function initArchitectureLine() {
+    var flow = document.querySelector(".architecture-flow");
+    if (!flow) return;
 
-async function generateForecast() {
+    function update() {
+      var rect = flow.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var total = rect.height + vh * 0.6;
+      var seen = vh * 0.85 - rect.top;
+      var progress = Math.max(0, Math.min(1, seen / total));
+      flow.style.setProperty("--arch-progress", progress.toFixed(3));
+    }
 
-    try {
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
 
-        generateBtn.disabled = true;
+  /* -----------------------------------------------------------------------
+     3. CAPABILITY CARD SPOTLIGHT
+     Cursor-follow glow — subtle, premium hover feedback.
+     ------------------------------------------------------------------- */
+  function initCardSpotlight() {
+    if (prefersReducedMotion) return;
+    document.querySelectorAll(".capability-card").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", ((e.clientX - r.left) / r.width) * 100 + "%");
+        card.style.setProperty("--my", ((e.clientY - r.top) / r.height) * 100 + "%");
+      });
+    });
+  }
 
-        generateBtn.innerText = "Generating...";
+  /* -----------------------------------------------------------------------
+     4. HERO AI REPORT CARD — animated metrics
+     Counts numeric values up and fills progress bars once in view.
+     Safe no-op if the report card markup has not been added yet.
+     ------------------------------------------------------------------- */
+  function animateCount(el, target, suffix) {
+    var start = 0;
+    var duration = 1200;
+    var startTime = null;
 
-        // Start Animation + Backend Together
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var value = Math.round(start + (target - start) * eased);
+      el.textContent = value + (suffix || "");
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
 
-        const animationPromise = animatePipeline();
+  function initReportCard() {
+    var card = document.querySelector(".ai-report-card");
+    if (!card) return;
 
-        const apiPromise = fetch(
-
-            `${API}/forecast/${phcSelect.value}`
-
-        );
-
-        const [_, response] = await Promise.all([
-
-            animationPromise,
-
-            apiPromise
-
-        ]);
-
-        if (!response.ok) {
-
-            throw new Error("Forecast Failed");
-
+    var run = function () {
+      card.querySelectorAll("[data-count]").forEach(function (el) {
+        var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+        var suffix = el.getAttribute("data-suffix") || "";
+        if (prefersReducedMotion) {
+          el.textContent = target + suffix;
+        } else {
+          animateCount(el, target, suffix);
         }
-
-        const data = await response.json();
-
-        // Show report section first
-        reportSection.classList.add("show");
-
-        // Allow browser to render it
-        await sleep(150);
-
-        // Scroll completely to report
-        window.scrollTo({
-
-            top: reportSection.offsetTop - 20,
-
-            behavior: "smooth"
-
+      });
+      card.querySelectorAll(".report-bar-fill").forEach(function (bar) {
+        var w = bar.getAttribute("data-fill") || "0%";
+        requestAnimationFrame(function () {
+          bar.style.width = w;
         });
+      });
+    };
 
-        // Give scroll animation time to finish
-        await sleep(700);
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            run();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(card);
+  }
 
-        // Now animate report contents
-        await populateReport(data);
-
+  /* -----------------------------------------------------------------------
+     5. LUCIDE ICON INIT (safe no-op if no data-lucide icons are present)
+     ------------------------------------------------------------------- */
+  function initLucide() {
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+      window.lucide.createIcons();
     }
+  }
 
-    catch (error) {
-
-        console.error(error);
-
-        alert("Unable to generate forecast.");
-
-    }
-
-    finally {
-
-        generateBtn.disabled = false;
-
-        generateBtn.innerText =
-
-            "Generate Tomorrow's Report";
-
-    }
-
-}
-
-// ==========================================================
-// Events
-// ==========================================================
-
-generateBtn.addEventListener(
-
-    "click",
-
-    generateForecast
-
-);
-
-// ==========================================================
-// Start Application
-// ==========================================================
-
-loadPHCs();
-
-resetPipeline();
-
-lucide.createIcons();
+  /* -----------------------------------------------------------------------
+     BOOT
+     ------------------------------------------------------------------- */
+  document.addEventListener("DOMContentLoaded", function () {
+    markRevealTargets();
+    initRevealObserver();
+    initArchitectureLine();
+    initCardSpotlight();
+    initReportCard();
+    initLucide();
+  });
+})();

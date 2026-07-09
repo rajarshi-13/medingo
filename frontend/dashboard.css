@@ -1142,3 +1142,47 @@ color:#10B981;
     }
 
 }
+
+/* ==========================================
+   Back Button
+========================================== */
+
+.back-btn{
+
+    position:fixed;
+
+    top:30px;
+
+    left:30px;
+
+    padding:12px 22px;
+
+    background:#ffffff;
+
+    color:#2563eb;
+
+    border:2px solid #2563eb;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s ease;
+
+    z-index:1000;
+
+}
+
+.back-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}

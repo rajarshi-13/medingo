@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medingo AI</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+    <a href="index.html" class="back-btn">
+        ← Back to Home
+    </a>
+
+    <!-- ===================================== -->
+    <!-- HERO -->
+    <!-- ===================================== -->
+
+    <header class="hero">
+
+        <div class="hero-left">
+
+            <img src="assets/Medingo Logo.png" class="logo">
+
+            <span class="tag">
+
+                Buld with AI | Code for communities
+
+            </span>
+
+            <h1>
+
+                Tomorrow's Healthcare
+
+                <span>
+
+                    Intelligence
+
+                </span>
+
+            </h1>
+
+            <p>
+
+                Medingo transforms operational hospital data into
+                actionable healthcare decisions using Machine Learning,
+                AI Risk Analysis and Gemini powered clinical intelligence.
+
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- ===================================== -->
+    <!-- CONTROL CENTER -->
+    <!-- ===================================== -->
+
+    <section class="control-center">
+
+        <div class="control-card">
+
+            <div>
+
+                <h2>
+
+                    AI Control Center
+
+                </h2>
+
+                <p>
+
+                    Select a Primary Health Centre and let Medingo generate tomorrow's operational brief.
+
+                </p>
+
+            </div>
+
+            <div class="controls">
+
+                <select id="phcSelect">
+
+                    <option value="PHC_01">PHC_01</option>
+                    <option value="PHC_02">PHC_02</option>
+                    <option value="PHC_03">PHC_03</option>
+                    <option value="PHC_04">PHC_04</option>
+                    <option value="PHC_05">PHC_05</option>
+                    <option value="PHC_06">PHC_06</option>
+                    <option value="PHC_07">PHC_07</option>
+                    <option value="PHC_08">PHC_08</option>
+                    <option value="PHC_09">PHC_09</option>
+                    <option value="PHC_10">PHC_10</option>
+                    <option value="PHC_11">PHC_11</option>
+                    <option value="PHC_12">PHC_12</option>
+                    <option value="PHC_13">PHC_13</option>
+                    <option value="PHC_14">PHC_14</option>
+                    <option value="PHC_15">PHC_15</option>
+                    <option value="PHC_16">PHC_16</option>
+                    <option value="PHC_17">PHC_17</option>
+                    <option value="PHC_18">PHC_18</option>
+                    <option value="PHC_19">PHC_19</option>
+                    <option value="PHC_20">PHC_20</option>
+                    <option value="PHC_21">PHC_21</option>
+                    <option value="PHC_22">PHC_22</option>
+                    <option value="PHC_23">PHC_23</option>
+                    <option value="PHC_24">PHC_24</option>
+                    <option value="PHC_25">PHC_25</option>
+
+                </select>
+
+                <button id="generateBtn">
+
+                    Generate Tomorrow's Report
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================== -->
+    <!-- AI PIPELINE -->
+    <!-- ===================================== -->
+
+    <section class="pipeline-section">
+
+        <div class="section-heading">
+
+            <span>
+
+                Explainable AI Pipeline
+
+            </span>
+
+            <h2>
+
+                How Medingo Thinks
+
+            </h2>
+
+            <p>
+
+                Before generating tomorrow's operational report,
+                Medingo processes multiple healthcare signals,
+                performs simulation, predicts patient demand,
+                evaluates operational risks and finally generates
+                AI recommendations.
+
+            </p>
+
+        </div>
+
+
+        <!-- INPUT LAYER -->
+
+        <div class="layer-title">
+
+            DATA COLLECTION
+
+        </div>
+
+        <div class="input-layer">
+
+            <div class="node" id="hospital">
+
+                <i data-lucide="hospital"></i>
+
+                <h3>
+
+                    Hospital Data
+
+                </h3>
+
+                <small>
+
+                    Patients
+
+                    Doctors
+
+                    Beds
+
+                    Medicines
+
+                </small>
+                <div class="status">
+
+                    Waiting...
+
+                </div>
+
+            </div>
+
+            <div class="node" id="weather">
+
+                <i data-lucide="cloud-sun"></i>
+
+                <h3>
+
+                    Weather
+
+                </h3>
+
+                <small>
+
+                    Temperature
+
+                    AQI
+
+                </small>
+
+                <div class="status">
+
+                    Waiting...
+
+                </div>
+
+
+            </div>
+
+            <div class="node" id="disease">
+
+                <i data-lucide="activity"></i>
+
+                <h3>
+
+                    Disease Trends
+
+                </h3>
+
+                <small>
+
+                    Viral Pressure
+
+                    Seasonal Patterns
+
+                </small>
+
+                <div class="status">
+
+                    Waiting...
+
+                </div>
+
+            </div>
+
+            <div class="node" id="calendar">
+
+                <i data-lucide="calendar-days"></i>
+
+                <h3>
+
+                    Calendar
+
+                </h3>
+
+                <small>
+
+                    Holidays
+
+                    Festivals
+
+                    Weekends
+
+                </small>
+
+                <div class="status">
+
+                    Waiting...
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="connector">
+
+            ↓
+
+        </div>
+
+
+
+        <!-- SIMULATION -->
+
+        <div class="big-node" id="simulation">
+
+            <i data-lucide="database-zap"></i>
+
+            <h2>
+
+                Healthcare Simulation Engine
+
+            </h2>
+
+            <p>
+
+                Research-driven synthetic healthcare dataset generation.
+
+            </p>
+
+            <div class="status">
+
+                Waiting...
+
+            </div>
+
+            <div class="dataset-stats">
+
+                <div>
+
+                    <strong>
+
+                        27,375
+
+                    </strong>
+
+                    Records
+
+                </div>
+
+                <div>
+
+                    <strong>
+
+                        41
+
+                    </strong>
+
+                    Features
+
+                </div>
+
+                <div>
+
+                    <strong>
+
+                        25
+
+                    </strong>
+
+                    PHCs
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="connector">
+
+            ↓
+
+        </div>
+
+
+
+        <!-- FEATURE ENGINEERING -->
+
+        <div class="node wide-node" id="features">
+
+            <i data-lucide="sliders-horizontal"></i>
+
+            <h3>
+
+                Feature Engineering
+
+            </h3>
+
+            <p>
+
+                Data Cleaning
+
+                Encoding
+
+                Feature Selection
+
+                Forecast Variables
+
+            </p>
+            <div class="status">
+
+                Waiting...
+
+            </div>
+
+        </div>
+
+
+
+        <div class="connector">
+
+            ↓
+
+        </div>
+
+
+
+        <!-- XGBOOST -->
+
+        <div class="node wide-node" id="xgboost">
+
+            <i data-lucide="brain-circuit"></i>
+
+            <h3>
+
+                XGBoost Forecast Engine
+
+            </h3>
+
+            <p>
+
+                Predict Tomorrow's Patient Footfall
+
+            </p>
+
+            <div class="status">
+
+                Waiting...
+
+            </div>
+
+        </div>
+
+
+
+        <div class="connector">
+
+            ↓
+
+        </div>
+
+
+
+        <!-- RISK ENGINE -->
+
+        <div class="node wide-node" id="risk">
+
+            <i data-lucide="shield-alert"></i>
+
+            <h3>
+
+                Operational Risk Engine
+
+            </h3>
+
+            <p>
+
+                Doctor Capacity
+
+                Medicine Stock
+
+                Operational Alerts
+
+            </p>
+
+            <div class="status">
+
+                Waiting...
+
+            </div>
+
+        </div>
+
+
+
+        <div class="connector">
+
+            ↓
+
+        </div>
+
+
+
+        <!-- GEMINI -->
+
+        <div class="node wide-node" id="gemini">
+
+            <i data-lucide="sparkles"></i>
+
+            <h3>
+
+                Gemini AI Advisor
+
+            </h3>
+
+            <p>
+
+                Converts predictions into actionable healthcare recommendations.
+
+            </p>
+
+            <div class="status">
+
+                Waiting...
+
+            </div>
+
+        </div>
+
+
+
+        <div class="connector final-arrow">
+
+            ↓
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- TOMORROW'S OPERATIONAL BRIEF -->
+        <!-- Hidden Until AI Finishes -->
+        <!-- ===================================== -->
+
+        <section id="reportSection" class="report-section">
+
+            <div class="report-header">
+
+                <span class="report-tag">
+                    AI Generated Operational Brief
+                </span>
+
+                <h2>
+                    Tomorrow's Operational Report
+                </h2>
+
+                <p>
+                    Generated after analysing historical healthcare records,
+                    external signals and operational risk indicators.
+                </p>
+
+            </div>
+
+
+
+            <!-- Executive Summary -->
+
+            <div class="summary-card">
+
+                <div class="summary-title">
+
+                    🧠 Executive Summary
+
+                </div>
+
+                <div id="summaryText">
+
+                    Waiting for AI Summary...
+
+                </div>
+
+            </div>
+
+
+
+            <!-- KPI Cards -->
+
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon">
+
+                        👥
+
+                    </div>
+
+                    <div class="kpi-label">
+
+                        Expected Patients Tomorrow
+
+                    </div>
+
+                    <div class="kpi-value" id="patients">
+
+                        --
+
+                    </div>
+
+                    <div class="kpi-footer">
+
+                        Forecasted OPD Footfall
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon">
+
+                        💊
+
+                    </div>
+
+                    <div class="kpi-label">
+
+                        Remaining Medicine Stock
+
+                    </div>
+
+                    <div class="kpi-value" id="stock">
+
+                        --
+
+                    </div>
+
+                    <div class="kpi-footer">
+
+                        Estimated After Tomorrow
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon">
+
+                        👨‍⚕️
+
+                    </div>
+
+                    <div class="kpi-label">
+
+                        Doctor Capacity Utilization
+
+                    </div>
+
+                    <div class="kpi-value" id="doctor">
+
+                        --
+
+                    </div>
+
+                    <div class="kpi-footer">
+
+                        Expected Workload
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="kpi-card risk-card">
+
+                    <div class="kpi-icon">
+
+                        ⚠
+
+                    </div>
+
+                    <div class="kpi-label">
+
+                        Operational Risk
+
+                    </div>
+
+                    <div class="kpi-value" id="riskScore">
+
+                        --
+
+                    </div>
+
+                    <div class="kpi-footer">
+
+                        AI Risk Assessment
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Medicine -->
+
+            <div class="medicine-card">
+
+                <h3>
+
+                    💉 Medicine Requirement
+
+                </h3>
+
+                <div class="medicine-grid">
+
+                    <div>
+
+                        <span>
+
+                            Paracetamol
+
+                        </span>
+
+                        <strong id="para">
+
+                            --
+
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+
+                            Amoxicillin
+
+                        </span>
+
+                        <strong id="amox">
+
+                            --
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Alerts -->
+
+            <div class="alerts-card">
+
+                <h3>
+
+                    ⚠ Operational Alerts
+
+                </h3>
+
+                <ul id="alerts">
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Gemini -->
+
+            <div class="gemini-card">
+
+                <div class="gemini-header">
+
+                    🤖 Gemini AI Clinical Advisor
+
+                </div>
+
+                <div id="aiExplanation">
+
+                    Waiting for AI recommendation...
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+
+            <div class="footer-content">
+
+
+
+                <h2>
+
+                    Medingo AI
+
+                </h2>
+
+                <p>
+
+                    Predict Earlier • Prepare Better • Save More Lives
+
+                </p>
+
+                <small>
+
+                    Buld with AI | Code for communities
+
+                </small>
+
+            </div>
+
+        </footer>
+
+        <script src="dashboard.js"></script>
+
+        <script>
+
+            lucide.createIcons();
+
+        </script>
+
+</body>
+
+</html>
