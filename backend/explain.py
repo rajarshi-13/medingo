@@ -9,7 +9,9 @@ in simple natural language.
 
 import os
 from dotenv import load_dotenv
-import google.generativeai as genai
+from langchain_groq import ChatGroq
+
+#import google.generativeai as genai
 
 load_dotenv()
 
@@ -17,16 +19,16 @@ load_dotenv()
 # Configure Gemini
 # ==========================================================
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-if not GOOGLE_API_KEY:
+if not GROQ_API_KEY:
     raise Exception(
-        "GOOGLE_API_KEY not found in environment variables."
+        "GROQ_API_KEY not found in environment variables."
     )
 
-genai.configure(api_key=GOOGLE_API_KEY)
+#genai.configure(api_key=GROQ_API_KEY)
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = ChatGroq("llama-3.3-70b-versatile")
 
 
 # ==========================================================
