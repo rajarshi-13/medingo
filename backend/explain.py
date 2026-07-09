@@ -28,7 +28,11 @@ if not GROQ_API_KEY:
 
 #genai.configure(api_key=GROQ_API_KEY)
 
-model = ChatGroq("llama-3.3-70b-versatile")
+model = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    groq_api_key=GROQ_API_KEY,
+    temperature=0.3,
+)
 
 
 # ==========================================================
@@ -79,7 +83,7 @@ Do not invent new risks.
 Do not use Markdown.
 """
 
-    response = model.generate_content(prompt)
+    response = model.invoke(prompt)
 
     return response.text.strip()
 
